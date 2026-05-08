@@ -358,4 +358,8 @@ button {
     .contact {
         padding: 60px 5%;
     }
+
+    nav a.active {
+    color: #2563EB;
+    font-weight: bold;
 }
