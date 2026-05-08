@@ -5,7 +5,6 @@ const textElement = document.querySelector(".hero-left h2");
 
 const texts = [
     "Mahasiswa Informatika",
-    "Web Developer",
     "UI/UX Enthusiast"
 ];
 
