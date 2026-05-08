@@ -8,6 +8,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #F8FAFC;
     color: #0F172A;
+    overflow-x: hidden; /* Mencegah layar goyang ke samping */
 }
 
 /* NAVBAR */
@@ -15,7 +16,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 100px;
+    padding: 30px 10%; /* Menggunakan % agar fleksibel */
 }
 
 .logo {
@@ -41,7 +42,7 @@ nav a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px 100px;
+    padding: 80px 10%;
     min-height: 80vh;
 }
 
@@ -58,6 +59,7 @@ nav a {
 .hero-left h1 {
     font-size: 64px;
     margin-bottom: 10px;
+    line-height: 1.1;
 }
 
 .hero-left h2 {
@@ -85,14 +87,14 @@ button {
 /* CONTAINER HERO KANAN */
 .hero-right {
     position: relative;
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
     height: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* LINGKARAN BIRU DI BELAKANG */
 .circle {
     position: absolute;
     width: 420px;
@@ -101,19 +103,17 @@ button {
     border-radius: 50%;
     z-index: 1;
     top: 50%;
-    left: 55%;
+    left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
 }
 
-/* GAMBAR PROFIL UTAMA */
 .main-profile {
     position: relative;
     width: 100%;
     height: auto;
     z-index: 2;
-    bottom: 80px;
-    left: -5%;
+    top: -20px; /* Diperbaiki agar tidak terlalu jauh ke atas */
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
 }
 
@@ -129,150 +129,166 @@ button {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     z-index: 3;
     min-width: 100px;
-    transition: all 0.3s ease;
 }
 
-.floating-card:hover {
-    transform: translateY(-10px);
-}
-
-.floating-card .icon {
-    font-size: 24px;
-    margin-bottom: 5px;
-}
-
-.floating-card .text {
-    font-size: 12px;
-    font-weight: 800;
-    color: #0F172A;
-}
-
-/* POSISI KARTU */
 .card-web { top: 15%; right: 0; }
-.card-tech { top: 45%; right: -30px; }
+.card-tech { top: 45%; right: -20px; }
 .card-uiux { bottom: 15%; right: 0; }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
-    .hero-right { width: 400px; height: 400px; }
-    .circle { width: 300px; height: 300px; }
-    .main-profile { width: 110%; }
-}
-
-/* ABOUT */
+/* ABOUT SECTION */
 .about {
-    padding: 120px 100px;
+    padding: 100px 10%;
     background: #FFFFFF;
     text-align: center;
 }
 
-/* Judul Biru di Tengah Atas */
 .about-title {
     color: #2563EB;
     font-size: 30px;
-    margin-bottom: 0px;
-    display: block;
-}
-
-.about h2 {
-    font-size: 28px;
-    margin: 10px 0;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* Container baru untuk membungkus kolom kiri dan kanan */
 .about-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 100px;
+    gap: 50px;
     text-align: left;
+    margin-top: 40px;
 }
 
-.about-left,
-.about-right {
-    flex: 1;
+.about-left, .about-right { flex: 1; }
+
+.about-left h2, .about-right h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
-.about-left h2,
-.about-right h2 {
-    font-size: 28px;
-    line-height: 1.2;
-    margin-bottom: 25px;
-    color: #0F172A;
-}
-
-.about-left p,
-.about-right p {
-    font-size: 24px;
+.about-left p, .about-right p {
+    font-size: 20px;
     color: #475569;
     line-height: 1.7;
-    max-width: 550px;
 }
 
 /* EDUCATION SECTION */
 .education {
-    padding: 100px 100px;
-    background: #ffffff;
+    padding: 100px 10%;
+    background: #f8fafc;
     text-align: center;
 }
 
-.education-header {
-    margin-bottom: 60px;
-}
-
-.education-header h2 {
-    font-size: 40px;
-    margin: 10px 0;
-    color: #0F172A;
-}
-
-.education-header p {
-    font-size: 20px;
-    color: #475569;
-}
-
-/* CONTAINER LOGO */
 .education-logos {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
     flex-wrap: wrap;
+    margin-top: 40px;
 }
 
 .logo-item {
     width: 120px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    height: 100px;
     filter: grayscale(100%);
     opacity: 0.6;
+    transition: 0.3s;
 }
 
-/* Efek saat logo disentuh (Hover) */
-.logo-item:hover {
-    transform: scale(1.1);
-    filter: grayscale(0%);
-    opacity: 1;
+.logo-item:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
+.logo-item img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* PORTFOLIO */
+.portfolio {
+    padding: 100px 10%;
+    text-align: center;
 }
 
-.logo-item img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+.project-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .education {
-        padding: 60px 20px;
+.project-card {
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* CONTACT */
+.contact {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+/* --- RESPONSIVE FIX (HP & TABLET) --- */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
     }
-    .education-logos {
-        gap: 30px;
+
+    nav ul {
+        gap: 15px;
+        font-size: 14px;
     }
+
+    .hero {
+        flex-direction: column;
+        padding: 40px 5%;
+        text-align: center;
+    }
+
+    .hero-left {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+
+    .hero-left h1 {
+        font-size: 38px;
+    }
+
+    .hero-right {
+        width: 100%;
+        height: 350px;
+    }
+
+    .circle {
+        width: 280px;
+        height: 280px;
+    }
+
+    .main-profile {
+        width: 85%;
+        top: 0;
+    }
+
+    /* Sembunyikan kartu melayang di HP agar tidak menutupi wajah atau buat mereka kecil */
+    .floating-card {
+        display: none; 
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .about, .education, .portfolio, .contact {
+        padding: 60px 5%;
+    }
+
+    .about-left h2, .about-right h2 {
+        font-size: 26px;
+    }
+
     .logo-item {
         width: 80px;
         height: 80px;
@@ -281,162 +297,4 @@ button {
 
 html {
     scroll-behavior: smooth;
-}
-
-.portfolio {
-    padding: 100px;
-    text-align: center;
-}
-
-.portfolio h4 {
-    color: #2563EB;
-    font-size: 30px;
-}
-
-.portfolio h2 {
-    font-size: 28px;
-    margin: 10px 0;
-}
-
-.portfolio p {
-    color: #475569;
-    font-size: 20px;
-    margin-bottom: 50px;
-}
-
-.project-container {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.project-card {
-    width: 550px;
-    text-align: left;
-}
-
-.project-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.project-card h3 {
-    font-size: 28px;
-    margin-bottom: 15px;
-}
-
-.project-card a {
-    color: #2563EB;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.project-card p {
-    font-size: 18px;
-    margin-top: 15px;
-    line-height: 1.7;
-    color: #475569;
-}
-
-.contact {
-    padding: 100px;
-    text-align: center;
-    background: #ffffff;
-}
-
-.contact h4 {
-    color: #2563EB;
-    font-size: 30px;
-}
-
-.contact h2 {
-    font-size: 28px;
-    margin: 10px 0;
-}
-
-.contact p {
-    font-size: 18px;
-    color: #475569;
-    margin-bottom: 20px;
-}
-
-.contact-info {
-    margin-top: 40px;
-}
-
-.contact-info p {
-    font-size: 18px;
-    margin: 15px 0;
-}
-
-/* RESPONSIVE MODE (UNTUK HP) */
-@media (max-width: 768px) {
-    
-    /* 1. Navbar: Ubah agar menu tidak menumpuk */
-    nav {
-        padding: 20px;
-        flex-direction: column; /* Logo di atas, menu di bawah */
-        gap: 15px;
-    }
-
-    nav ul {
-        gap: 15px;
-        font-size: 14px;
-    }
-
-    /* 2. Hero Section: Ubah dari sampingan (flex) jadi tumpukan atas-bawah */
-    .hero {
-        flex-direction: column;
-        padding: 40px 20px;
-        text-align: center;
-        min-height: auto;
-    }
-
-    .hero-left {
-        width: 100%;
-        margin-bottom: 50px;
-    }
-
-    .hero-left h1 {
-        font-size: 40px; /* Perkecil ukuran font di HP */
-    }
-
-    /* 3. Foto & Lingkaran: Perkecil ukurannya */
-    .hero-right {
-        width: 100%;
-        height: 350px;
-    }
-
-    .circle {
-        width: 250px;
-        height: 250px;
-    }
-
-    .main-profile {
-        width: 80%; /* Pastikan foto tidak melebar keluar layar */
-    }
-
-    /* 4. Tentang Saya: Ubah kolom jadi satu tumpukan */
-    .about-content {
-        flex-direction: column;
-        gap: 30px;
-        padding: 0 20px;
-    }
-
-    .about-left h2, .about-right h2 {
-        font-size: 24px;
-    }
-
-    /* 5. Portfolio: Pastikan kartu project lebarnya 100% */
-    .project-card {
-        width: 100%;
-    }
-
-    /* 6. Pendidikan: Perkecil logo agar muat banyak */
-    .logo-item {
-        width: 100px;
-        height: 80px;
-    }
 }
