@@ -66,15 +66,7 @@ nav a {
     font-size: 32px;
     margin-bottom: 20px;
     min-height: 45px;
-    height: 45px;
-    width: 350px;
-    line-height: 1.4;
-    display: block;
-    border-right: 3px solid #2563EB;
-    padding-right: 6px;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: blink 0.7s infinite;
+    transition: opacity 0.3s ease;
 }
 
 .hero-left p {
@@ -281,12 +273,9 @@ button {
         font-size: 36px;
     }
 
-    .hero-left h2 {
+   .hero-left h2 {
     font-size: 24px;
     min-height: 35px;
-    height: 35px;
-    width: 260px;
-    margin: 0 auto 20px auto;
     }
 
     .hero-left p {
