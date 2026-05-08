@@ -1,44 +1,28 @@
 // ===============================
-// TYPING EFFECT
+// TEXT SWITCH SMOOTH
 // ===============================
 const textElement = document.querySelector(".hero-left h2");
-const textArray = [
+
+const texts = [
     "Mahasiswa Informatika",
     "Web Developer",
     "UI/UX Enthusiast"
 ];
 
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+let currentIndex = 0;
 
-function typeEffect() {
-    const currentText = textArray[textIndex];
+function changeText() {
+    textElement.style.opacity = "0";
 
-    if (!isDeleting) {
-        textElement.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-
-        if (charIndex === currentText.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, 1200);
-            return;
-        }
-    } else {
-        textElement.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-
-        if (charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % textArray.length;
-        }
-    }
-
-    setTimeout(typeEffect, isDeleting ? 60 : 100);
+    setTimeout(() => {
+        textElement.textContent = texts[currentIndex];
+        textElement.style.opacity = "1";
+        currentIndex = (currentIndex + 1) % texts.length;
+    }, 300);
 }
 
-typeEffect();
-
+changeText();
+setInterval(changeText, 2500);
 
 // ===============================
 // ANIMASI SAAT SCROLL
